@@ -1,6 +1,6 @@
 import { AppBar, CatalogProducts } from "@/src/components/oraganisms";
 
-export default function Home() {
+export default function products() {
   return (
     <div>
       <AppBar />
