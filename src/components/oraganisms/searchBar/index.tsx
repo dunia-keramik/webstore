@@ -1,14 +1,23 @@
 "use client";
 import { RiSearchLine } from "react-icons/ri";
 import { useState } from "react";
+import { GetDataApi } from "@/src/utils";
+import { CardProduct } from "../../molecules";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [products, setProducts] = useState([]);
 
-  const handleSearch = (event: any) => {
+  const handleSearch = async (event: any) => {
     event.preventDefault();
-    console.log(searchTerm);
-    // Lakukan sesuatu dengan nilai searchTerm, seperti mengirim permintaan pencarian ke server
+    try {
+      const response = await GetDataApi(
+        `${process.env.NEXT_PUBLIC_HOST}/barang/search?query=${searchTerm}`
+      );
+      setProducts(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleKeyPress = (event: any) => {
@@ -18,27 +27,40 @@ const SearchBar = () => {
   };
 
   return (
-    <form
-      className="flex justify-center items-center py-8"
-      onSubmit={handleSearch}
-    >
-      <div className="relative flex items-center w-3/4">
-        <input
-          type="text"
-          placeholder="Cari sesuatu..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          onKeyDown={handleKeyPress}
-          className="w-full px-4 py-2 rounded-md shadow-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring focus:ring-blue-300"
-        />
-        <button
-          type="submit"
-          className="absolute right-0 mr-2 p-2 rounded-md bg-transparent border-none cursor-pointer focus:outline-none"
-        >
-          <RiSearchLine size={20} />
-        </button>
+    <div>
+      <form
+        className="flex justify-center items-center py-8"
+        onSubmit={handleSearch}
+      >
+        <div className="relative flex items-center w-3/4">
+          <input
+            type="text"
+            placeholder="Cari sesuatu..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleKeyPress}
+            className="w-full px-4 py-2 rounded-md shadow-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring focus:ring-blue-300"
+          />
+          <button
+            type="submit"
+            className="absolute right-0 mr-2 p-2 rounded-md bg-transparent border-none cursor-pointer focus:outline-none"
+          >
+            <RiSearchLine size={20} />
+          </button>
+        </div>
+      </form>
+      {/* product result */}
+      <div className={`shadow p-2 m-2 border rounded ${products.length < 1 ? "hidden" : ""}`}>
+        <p className="font-semibold">Hasil pencarian dari {searchTerm}</p>
+        <div className="flex">
+          {products?.map((product: any) => (
+            <div key={product.slug}>
+              <CardProduct product={product} />
+            </div>
+          ))}
+        </div>
       </div>
-    </form>
+    </div>
   );
 };
 
