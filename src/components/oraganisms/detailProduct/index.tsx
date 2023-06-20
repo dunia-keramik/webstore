@@ -2,7 +2,7 @@
 const DetailProduct = (props: { product: any }) => {
   const Barang = props.product;
   return (
-    <div className="max-w-3xl mx-auto py-8 px-4 flex border md:flex-row flex-col shadow rounded my-3 p-2">
+    <div className="max-w-3xl mx-auto py-8 px-4 flex md:border md:flex-row flex-col shadow rounded my-3 p-2">
       <div className="md:w-1/3 flex justify-center w-full">
         <img
           className="w-60 h-5w-60 border"

@@ -15,7 +15,7 @@ async function Product({ params }: { params: { slug: string } }) {
 
   return (
     <div className="">
-      <AppBar />
+      <AppBar backIcon={true} />
       <DetailProduct product={Barang} />
     </div>
   );
