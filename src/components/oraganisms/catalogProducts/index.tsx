@@ -1,20 +1,19 @@
-import { GetDataApi } from "@/src/utils";
 import { CardProduct } from "../../molecules";
+import { LuSquareDot } from "react-icons/lu";
 
-const CatalogProducts = async () => {
-  const response = await GetDataApi(`${process.env.NEXT_PUBLIC_HOST}/barang`);
-
-  const products = response.data;
-
+const CatalogProducts = (props: { products: any[]; title: string }) => {
   return (
     <div
-      className={`shadow p-2 m-2 border rounded ${
-        products.length < 1 ? "hidden" : ""
+      className={`p-2 m-2 shadow sm:border rounded ${
+        props.products.length < 1 ? "hidden" : ""
       }`}
     >
-      <p className="font-semibold">Semua barang</p>
+      <p className="font-semibold flex items-center">
+        <LuSquareDot className="mr-1 text-gray-500" />
+        {props.title}
+      </p>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        {products?.map((product: any) => (
+        {props.products?.map((product: any) => (
           <div key={product.slug}>
             <CardProduct product={product} />
           </div>

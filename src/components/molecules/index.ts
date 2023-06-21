@@ -1,3 +1,4 @@
 import CardProduct from "./cardProduct";
+import SwiperProduct from "./swiperProduct";
 
-export { CardProduct };
+export { CardProduct, SwiperProduct };

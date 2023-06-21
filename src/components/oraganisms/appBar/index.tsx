@@ -22,6 +22,7 @@ async function AppBar(props: { backIcon?: boolean }) {
           {webstore && webstore?.nama_webstore}
         </p>
       </div>
+      <div></div>
     </div>
   );
 }
