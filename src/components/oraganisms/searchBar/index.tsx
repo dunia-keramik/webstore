@@ -3,20 +3,30 @@ import { RiSearchLine } from "react-icons/ri";
 import { useState } from "react";
 import { GetDataApi } from "@/src/utils";
 import { CardProduct } from "../../molecules";
+import { Block, Notify } from "notiflix";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [products, setProducts] = useState([]);
 
   const handleSearch = async (event: any) => {
+    Block.hourglass("#searchResult");
     event.preventDefault();
     try {
       const response = await GetDataApi(
         `${process.env.NEXT_PUBLIC_HOST}/barang/search?query=${searchTerm}`
       );
+      if (response.status === 400) {
+        Notify.failure(response.message);
+      }
+      if (response.status === 500) {
+        Notify.failure(response.message + ", Coba Lagi!");
+      }
       setProducts(response.data);
+      Block.remove("#searchResult");
     } catch (error) {
       console.error(error);
+      Block.remove("#searchResult");
     }
   };
 
@@ -50,16 +60,18 @@ const SearchBar = () => {
         </div>
       </form>
       {/* product result */}
-      <div className={`shadow p-2 m-2 border rounded ${products.length < 1 ? "hidden" : ""}`}>
-        <p className="font-semibold">Hasil pencarian dari {searchTerm}</p>
-        <div className="flex">
-          {products?.map((product: any) => (
-            <div key={product.slug}>
-              <CardProduct product={product} />
-            </div>
-          ))}
+      {products && products?.length > 0 && (
+        <div id="searchResult" className="shadow p-2 m-2 border rounded">
+          <p className="font-semibold">Hasil pencarian dari {searchTerm}</p>
+          <div className="flex">
+            {products?.map((product: any) => (
+              <div key={product.slug}>
+                <CardProduct product={product} />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
