@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { SimulasiKeramik } from "@/src/components/molecules";
 import { AppBar, DetailProduct } from "@/src/components/oraganisms";
 import { GetDataApi } from "@/src/utils";
 import { Metadata } from "next";
@@ -14,9 +15,12 @@ async function Product({ params }: { params: { slug: string } }) {
   const Barang = data.data;
 
   return (
-    <div className="">
+    <div>
       <AppBar backIcon={true} />
-      <DetailProduct product={Barang} />
+      <div className="max-w-3xl mx-auto">
+        <DetailProduct product={Barang} />
+        <SimulasiKeramik imageUrl={Barang?.images[0]} />
+      </div>
     </div>
   );
 }

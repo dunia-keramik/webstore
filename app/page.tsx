@@ -1,3 +1,4 @@
+import { SwiperProduct } from "@/src/components/molecules";
 import {
   AppBar,
   CatalogProducts,
@@ -14,6 +15,7 @@ const Home = async () => {
     <div>
       <AppBar />
       <SearchBar />
+      <SwiperProduct products={products} title="Rekomendasi Produk" />
       <CatalogProducts products={products} title={"Semua Produk"} />
     </div>
   );

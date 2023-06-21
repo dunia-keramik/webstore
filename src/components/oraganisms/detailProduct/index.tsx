@@ -2,7 +2,7 @@
 const DetailProduct = (props: { product: any }) => {
   const Barang = props.product;
   return (
-    <div className="max-w-3xl mx-auto py-8 px-4 flex md:border md:flex-row flex-col shadow rounded my-3 p-2">
+    <div className="py-8 px-4 flex md:border md:flex-row flex-col shadow rounded my-3 p-2">
       <div className="md:w-1/3 flex justify-center w-full">
         <img
           className="w-60 h-5w-60 border"
@@ -14,12 +14,17 @@ const DetailProduct = (props: { product: any }) => {
         <p className="md:text-xl text-lg font-bold my-3">
           {Barang?.nama_barang}
         </p>
-        <p className="md:text-lg font-semibold my-3">{Barang?.nama_brand}</p>
-        <p className="md:text-lg font-semibold my-3">
-          {Barang?.nama_kategori_barang}
+        <p className="md:text-lg font-medium my-3">
+          Brand: {Barang?.nama_brand}
         </p>
-        <p className="md:text-lg font-semibold my-3">{`${Barang?.stok} ${Barang?.nama_satuan}`}</p>
-        <p className="md:text-lg font-semibold my-3">
+        <p className="md:text-lg font-medium my-3">
+          Kategori Barang: {Barang?.nama_kategori_barang}
+        </p>
+        <p className="md:text-lg font-medium my-3">
+          Stok: {`${Barang?.stok} ${Barang?.nama_satuan}`}
+        </p>
+        <p className="md:text-lg font-medium my-3">
+          Harga:{" "}
           {"Rp " +
             Number(Barang?.harga_beli).toLocaleString("id-ID") +
             `/${Barang?.nama_satuan}`}
