@@ -5,7 +5,7 @@ const CatalogProducts = (props: { products: any[]; title: string }) => {
   return (
     <div
       className={`p-2 m-2 shadow sm:border rounded ${
-        props.products.length < 1 ? "hidden" : ""
+        props.products && props.products?.length > 0 ? "" : "hidden"
       }`}
     >
       <HeaderSection title={props.title} />

@@ -1,3 +1,5 @@
+import { Button } from "../../atoms";
+
 /* eslint-disable @next/next/no-img-element */
 const DetailProduct = (props: { product: any }) => {
   const Barang = props.product;
@@ -5,7 +7,7 @@ const DetailProduct = (props: { product: any }) => {
     <div className="py-8 px-4 flex md:border md:flex-row flex-col shadow rounded my-3 p-2">
       <div className="md:w-1/3 flex justify-center w-full">
         <img
-          className="w-60 h-5w-60 border"
+          className="w-60 h-60 border"
           src={Barang?.images[0]}
           alt={Barang?.nama_barang}
         />
@@ -29,6 +31,7 @@ const DetailProduct = (props: { product: any }) => {
             Number(Barang?.harga_beli).toLocaleString("id-ID") +
             `/${Barang?.nama_satuan}`}
         </p>
+        <Button color="green">Whatsapp</Button>
       </div>
     </div>
   );

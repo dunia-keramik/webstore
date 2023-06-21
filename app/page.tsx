@@ -7,7 +7,9 @@ import {
 import { GetDataApi } from "@/src/utils";
 
 const Home = async () => {
-   const response = await GetDataApi(`${process.env.NEXT_PUBLIC_HOST}/barang?page=1&limit=10`);
+  const response = await GetDataApi(
+    `${process.env.NEXT_PUBLIC_HOST}/barang?page=1&limit=10`
+  );
 
   const products = response.data;
 
