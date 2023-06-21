@@ -13,7 +13,7 @@ const CardProduct = (props: { product: any }) => {
       className="border m-2 cursor-pointer"
     >
       <img
-        className="w-36 h-5w-36 border"
+        className="w-full object-cover"
         src={props.product?.images[0]}
         alt={props.product?.nama_barang}
       />

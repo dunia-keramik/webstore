@@ -7,9 +7,13 @@ const CatalogProducts = async () => {
   const products = response.data;
 
   return (
-    <div className={`shadow p-2 m-2 border rounded ${products.length < 1 ? "hidden" : ""}`}>
+    <div
+      className={`shadow p-2 m-2 border rounded ${
+        products.length < 1 ? "hidden" : ""
+      }`}
+    >
       <p className="font-semibold">Semua barang</p>
-      <div className="flex">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {products?.map((product: any) => (
           <div key={product.slug}>
             <CardProduct product={product} />
