@@ -1,5 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import { SimulasiKeramik } from "@/src/components/molecules";
+import {
+  DeskripsiProduct,
+  KalkulatorKeramik,
+  SimulasiKeramik,
+} from "@/src/components/molecules";
 import { AppBar, DetailProduct } from "@/src/components/oraganisms";
 import { GetDataApi } from "@/src/utils";
 import { Metadata } from "next";
@@ -19,7 +23,9 @@ async function Product({ params }: { params: { slug: string } }) {
       <AppBar backIcon={true} />
       <div className="max-w-3xl mx-auto">
         <DetailProduct product={Barang} />
+        <DeskripsiProduct product={Barang} />
         <SimulasiKeramik imageUrl={Barang?.images[0]} />
+        <KalkulatorKeramik kategoriBarang={Barang?.nama_kategori_barang} />
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { HeaderSection } from "../../atoms";
 
 export default function SimulasiKeramik(props: { imageUrl: string }) {
-  const [backgroundColor, setBackgroundColor] = useState("#ffffff");
+  const [backgroundColor, setBackgroundColor] = useState("#dddddd");
 
   const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setBackgroundColor(event.target.value);
