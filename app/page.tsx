@@ -11,7 +11,7 @@ const Home = async () => {
     `${process.env.NEXT_PUBLIC_HOST}/barang?page=1&limit=10`
   );
   const responseWebstore = await GetDataApi(
-    `${process.env.NEXT_PUBLIC_HOST}/webstore/domain/ikjewffi.netlify.app`
+    `${process.env.NEXT_PUBLIC_HOST}/webstore/domain/sarrahman-store.netlify.app`
   );
 
   const webstore = responseWebstore.data;

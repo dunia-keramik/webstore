@@ -17,7 +17,7 @@ async function Product({ params }: { params: { slug: string } }) {
     `${process.env.NEXT_PUBLIC_HOST}/barang/${params.slug}`
   );
   const responseWebstore = await GetDataApi(
-    `${process.env.NEXT_PUBLIC_HOST}/webstore/domain/ikjewffi.netlify.app`
+    `${process.env.NEXT_PUBLIC_HOST}/webstore/domain/sarrahman-store.netlify.app`
   );
 
   const Barang = data.data;
@@ -27,13 +27,23 @@ async function Product({ params }: { params: { slug: string } }) {
     <div>
       <AppBar backIcon={true} webstore={webstore} />
       <div className="max-w-3xl mx-auto">
-        <DetailProduct product={Barang} />
+        <DetailProduct
+          product={Barang}
+          persentase={webstore?.membership?.kategoriHarga?.persentase}
+        />
         <DeskripsiProduct product={Barang} />
         <SimulasiKeramik imageUrl={Barang?.images[0]} />
         <KalkulatorKeramik
           kategoriBarang={Barang?.nama_kategori_barang}
           satuanBarang={Barang?.nama_satuan}
-          hargaBarang={Barang?.harga_beli}
+          hargaBarang={
+            Number(Barang?.harga_beli) +
+            Number(
+              (Barang?.harga_beli *
+                webstore?.membership?.kategoriHarga?.persentase) /
+                100
+            )
+          }
         />
       </div>
     </div>
