@@ -1,12 +1,25 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
+import { useState } from "react";
 import { HeaderSection } from "../../atoms";
 
-/* eslint-disable @next/next/no-img-element */
 export default function SimulasiKeramik(props: { imageUrl: string }) {
+  const [backgroundColor, setBackgroundColor] = useState("#ffffff");
+
+  const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setBackgroundColor(event.target.value);
+  };
+
+  const gridStyles = {
+    gridTemplateColumns: "repeat(3, 1fr)",
+    gap: "2px",
+    backgroundColor: backgroundColor,
+  };
+
   return (
     <div className="py-4 px-4 flex md:border flex-col shadow rounded my-3 p-2">
       <HeaderSection title="Simulasi Pattern" />
-      <div className="grid w-full grid-cols-3 gap-1 bg-gray-50">
+      <div className="grid" style={gridStyles}>
         <ImagePattern imageUrl={props.imageUrl} />
         <ImagePattern imageUrl={props.imageUrl} />
         <ImagePattern imageUrl={props.imageUrl} />
@@ -14,6 +27,12 @@ export default function SimulasiKeramik(props: { imageUrl: string }) {
         <ImagePattern imageUrl={props.imageUrl} />
         <ImagePattern imageUrl={props.imageUrl} />
       </div>
+      <input
+        type="color"
+        value={backgroundColor}
+        onChange={handleColorChange}
+        className="mt-2"
+      />
     </div>
   );
 }
@@ -23,7 +42,6 @@ const ImagePattern = (props: { imageUrl: string }) => {
     <img
       src={props.imageUrl}
       onClick={(e) => {
-        // rotate image 90 degree
         const img = e.target as HTMLImageElement;
         const deg = img.style.transform
           ? parseInt(
