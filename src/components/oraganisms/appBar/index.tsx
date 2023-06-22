@@ -1,13 +1,6 @@
-import { GetDataApi } from "@/src/utils";
 import { BackIcon } from "../../atoms";
 
-async function AppBar(props: { backIcon?: boolean }) {
-  const response = await GetDataApi(
-    `${process.env.NEXT_PUBLIC_HOST}/webstore/domain/ikjewffi.netlify.app`
-  );
-
-  const webstore = response.data;
-
+async function AppBar(props: { webstore: any; backIcon?: boolean }) {
   return (
     <div
       className={`flex shadow p-3 md:p-5 ${
@@ -19,7 +12,7 @@ async function AppBar(props: { backIcon?: boolean }) {
       </div>
       <div>
         <p className="font-bold text-lg md:text-xl">
-          {webstore && webstore?.nama_webstore}
+          {props.webstore && props.webstore?.nama_webstore}
         </p>
       </div>
       <div></div>

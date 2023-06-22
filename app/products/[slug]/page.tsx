@@ -3,7 +3,6 @@ import {
   DeskripsiProduct,
   KalkulatorKeramik,
   SimulasiKeramik,
-  TextFooter,
 } from "@/src/components/molecules";
 import { AppBar, DetailProduct } from "@/src/components/oraganisms";
 import { GetDataApi } from "@/src/utils";
@@ -17,11 +16,16 @@ async function Product({ params }: { params: { slug: string } }) {
   const data = await GetDataApi(
     `${process.env.NEXT_PUBLIC_HOST}/barang/${params.slug}`
   );
+  const responseWebstore = await GetDataApi(
+    `${process.env.NEXT_PUBLIC_HOST}/webstore/domain/ikjewffi.netlify.app`
+  );
+
   const Barang = data.data;
+  const webstore = responseWebstore.data;
 
   return (
     <div>
-      <AppBar backIcon={true} />
+      <AppBar backIcon={true} webstore={webstore} />
       <div className="max-w-3xl mx-auto">
         <DetailProduct product={Barang} />
         <DeskripsiProduct product={Barang} />

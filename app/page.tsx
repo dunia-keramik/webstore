@@ -7,17 +7,21 @@ import {
 import { GetDataApi } from "@/src/utils";
 
 const Home = async () => {
-  const response = await GetDataApi(
+  const responseBarang = await GetDataApi(
     `${process.env.NEXT_PUBLIC_HOST}/barang?page=1&limit=10`
   );
+  const responseWebstore = await GetDataApi(
+    `${process.env.NEXT_PUBLIC_HOST}/webstore/domain/ikjewffi.netlify.app`
+  );
 
-  const products = response.data;
+  const webstore = responseWebstore.data;
+  const products = responseBarang.data;
 
   return (
     <div>
-      <AppBar />
+      <AppBar webstore={webstore} />
       <SearchBar />
-      <SwiperProduct products={products} title="Rekomendasi Produk" />
+      <SwiperProduct products={products} title="Barang Terbaru" />
       <CatalogProducts products={products} title={"Semua Produk"} />
     </div>
   );

@@ -8,7 +8,7 @@ export default function SimulasiKeramik(props: { imageUrl: string }) {
 
   const gridStyles = {
     gridTemplateColumns: "repeat(3, 1fr)",
-    gap: "2px",
+    gap: "1px",
     backgroundColor: backgroundColor,
   };
 
