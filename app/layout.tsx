@@ -1,3 +1,4 @@
+import { TextFooter } from "@/src/components/molecules";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -15,7 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>{children}
+      <TextFooter />
+      </body>
     </html>
   );
 }

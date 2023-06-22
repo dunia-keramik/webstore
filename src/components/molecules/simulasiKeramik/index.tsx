@@ -1,14 +1,10 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
-import { HeaderSection } from "../../atoms";
+import { HeaderSection, Input } from "../../atoms";
 
 export default function SimulasiKeramik(props: { imageUrl: string }) {
   const [backgroundColor, setBackgroundColor] = useState("#dddddd");
-
-  const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setBackgroundColor(event.target.value);
-  };
 
   const gridStyles = {
     gridTemplateColumns: "repeat(3, 1fr)",
@@ -27,11 +23,12 @@ export default function SimulasiKeramik(props: { imageUrl: string }) {
         <ImagePattern imageUrl={props.imageUrl} />
         <ImagePattern imageUrl={props.imageUrl} />
       </div>
-      <input
+      <Input
+        label={"Warna Nat"}
+        name={"natColor"}
         type="color"
         value={backgroundColor}
-        onChange={handleColorChange}
-        className="mt-2"
+        onChange={(e) => setBackgroundColor(e.target.value)}
       />
     </div>
   );

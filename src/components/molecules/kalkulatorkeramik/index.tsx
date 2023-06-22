@@ -3,7 +3,11 @@ import { useState } from "react";
 import { HitungKeramik } from "@/src/functions";
 import { Button, HeaderSection, Input } from "../../atoms";
 
-const KalkulatorKeramik = (props: { kategoriBarang: string }) => {
+const KalkulatorKeramik = (props: {
+  kategoriBarang: string;
+  satuanBarang: string;
+  hargaBarang: number;
+}) => {
   const [panjang, setPanjang] = useState(0);
   const [lebar, setLebar] = useState(0);
   const [hasil, setHasil] = useState({} as any);
@@ -30,6 +34,25 @@ const KalkulatorKeramik = (props: { kategoriBarang: string }) => {
         />
         <Button isSubmit={true}>Hitung</Button>
       </form>
+      {hasil && hasil?.kebutuhan && (
+        <div>
+          <p className="md:text-lg font-medium my-3">
+            {`Kebutuhan: ${hasil?.kebutuhan} ${props.satuanBarang}`}
+          </p>
+          <p className="md:text-lg font-medium my-3">
+            {`Estimasi harga: Rp ${(
+              hasil?.kebutuhan * props.hargaBarang
+            ).toLocaleString()}*`}{" "}
+            <span className="text-sm text-gray-500">{`(*berdasarkan hasil kebutuhan dan harga barang)`}</span>
+          </p>
+          <p className="md:text-lg font-medium my-3">
+            Diameter Ruangan: {hasil?.diameter_ruang} m<sup>2</sup>
+          </p>
+          <p className="md:text-lg font-medium my-3">
+            Diameter Perdus: {hasil?.diameter_perdus} m
+          </p>
+        </div>
+      )}
     </div>
   );
 };

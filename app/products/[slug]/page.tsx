@@ -3,6 +3,7 @@ import {
   DeskripsiProduct,
   KalkulatorKeramik,
   SimulasiKeramik,
+  TextFooter,
 } from "@/src/components/molecules";
 import { AppBar, DetailProduct } from "@/src/components/oraganisms";
 import { GetDataApi } from "@/src/utils";
@@ -25,7 +26,11 @@ async function Product({ params }: { params: { slug: string } }) {
         <DetailProduct product={Barang} />
         <DeskripsiProduct product={Barang} />
         <SimulasiKeramik imageUrl={Barang?.images[0]} />
-        <KalkulatorKeramik kategoriBarang={Barang?.nama_kategori_barang} />
+        <KalkulatorKeramik
+          kategoriBarang={Barang?.nama_kategori_barang}
+          satuanBarang={Barang?.nama_satuan}
+          hargaBarang={Barang?.harga_beli}
+        />
       </div>
     </div>
   );
