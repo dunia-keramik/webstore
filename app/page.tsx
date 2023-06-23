@@ -12,11 +12,11 @@ const Home = async () => {
     `${process.env.NEXT_PUBLIC_HOST}/barang?page=1&limit=10`
   );
   const responseWebstore = await GetDataApi(
-    `${process.env.NEXT_PUBLIC_HOST}/webstore/domain/sarrahman-store.netlify.app`
+    `${process.env.NEXT_PUBLIC_HOST}/webstore/domain/localhost:3002`
   );
 
-  const webstore = responseWebstore.data;
-  const products = responseBarang.data;
+  const webstore = responseWebstore?.data;
+  const products = responseBarang?.data;
 
   return (
     <div>
@@ -24,7 +24,7 @@ const Home = async () => {
       <SearchBar />
       <SwiperProduct products={products} title="Barang Terbaru" />
       <CatalogProducts products={products} title={"Semua Produk"} />
-      <p>Nama Domain: {domainName}</p>
+      <p>Domain Name: {domainName}</p>
     </div>
   );
 };

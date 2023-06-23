@@ -2,7 +2,7 @@ export async function GetDataApi(url: string): Promise<any> {
   try {
     const response = await fetch(
       url,
-      { next: { revalidate: 60 } }
+      { cache: 'no-store' }
     );
     const data = await response.json();
     return data;

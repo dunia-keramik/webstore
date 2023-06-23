@@ -1,10 +1,31 @@
-import { AppBar, CatalogProducts } from "@/src/components/oraganisms";
+import { SwiperProduct } from "@/src/components/molecules";
+import {
+  AppBar,
+  CatalogProducts,
+  SearchBar,
+} from "@/src/components/oraganisms";
+import { GetDataApi } from "@/src/utils";
 
-export default function products() {
+const Product = async () => {
+  const domainName = "localhost:3002";
+  const responseBarang = await GetDataApi(
+    `${process.env.NEXT_PUBLIC_HOST}/barang?page=1&limit=10`
+  );
+  const responseWebstore = await GetDataApi(
+    `${process.env.NEXT_PUBLIC_HOST}/webstore/domain/${domainName}`
+  );
+
+  const webstore = responseWebstore?.data;
+  const products = responseBarang?.data;
+
   return (
     <div>
-      <AppBar />
-      <CatalogProducts />
+      <AppBar webstore={webstore} />
+      <SearchBar />
+      <SwiperProduct products={products} title="Barang Terbaru" />
+      <CatalogProducts products={products} title={"Semua Produk"} />
     </div>
   );
-}
+};
+
+export default Product;
