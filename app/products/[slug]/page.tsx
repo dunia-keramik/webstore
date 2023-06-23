@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import config from "@/config";
 import {
   DeskripsiProduct,
   KalkulatorKeramik,
@@ -14,14 +15,14 @@ export const metadata: Metadata = {
 
 async function Product({ params }: { params: { slug: string } }) {
   const data = await GetDataApi(
-    `${process.env.NEXT_PUBLIC_HOST}/barang/${params.slug}`
+    `${config.NEXT_PUBLIC_API_HOST}/barang/${params.slug}`
   );
   const responseWebstore = await GetDataApi(
-    `${process.env.NEXT_PUBLIC_HOST}/webstore/domain/sarrahman-store.netlify.app`
+    `${config.NEXT_PUBLIC_API_HOST}/webstore/domain/${config.NEXT_PUBLIC_HOST}`
   );
 
   const Barang = data.data;
-  const webstore = responseWebstore.data;
+  const webstore = responseWebstore?.data;
 
   return (
     <div>

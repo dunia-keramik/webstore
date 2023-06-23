@@ -1,3 +1,4 @@
+import config from "@/config";
 import { SwiperProduct } from "@/src/components/molecules";
 import {
   AppBar,
@@ -9,10 +10,10 @@ import { GetDataApi } from "@/src/utils";
 const Home = async () => {
   const domainName = process.env.NEXT_PUBLIC_NAMEAPP;
   const responseBarang = await GetDataApi(
-    `${process.env.NEXT_PUBLIC_HOST}/barang?page=1&limit=10`
+    `${config.NEXT_PUBLIC_API_HOST}/barang?page=1&limit=10`
   );
   const responseWebstore = await GetDataApi(
-    `${process.env.NEXT_PUBLIC_HOST}/webstore/domain/localhost:3002`
+    `${config.NEXT_PUBLIC_API_HOST}/webstore/domain/${config.NEXT_PUBLIC_HOST}`
   );
 
   const webstore = responseWebstore?.data;
