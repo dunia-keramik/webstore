@@ -2,9 +2,7 @@
 import { RiSearchLine } from "react-icons/ri";
 import { useState } from "react";
 import { GetDataApi } from "@/src/utils";
-import { CardProduct } from "../../molecules";
 import { Block, Notify } from "notiflix";
-import { LuSquareDot } from "react-icons/lu";
 import CatalogProducts from "../catalogProducts";
 
 const SearchBar = () => {
