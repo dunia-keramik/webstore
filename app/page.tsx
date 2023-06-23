@@ -8,7 +8,7 @@ import {
 import { GetDataApi } from "@/src/utils";
 
 const Home = async () => {
-  const domainName = process.env.NEXT_PUBLIC_NAMEAPP;
+  const domainName = process.env.NEXT_PUBLIC_HOST;
   const responseBarang = await GetDataApi(
     `${config.NEXT_PUBLIC_API_HOST}/barang?page=1&limit=10`
   );
