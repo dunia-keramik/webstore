@@ -7,6 +7,7 @@ import {
 import { GetDataApi } from "@/src/utils";
 
 const Home = async () => {
+  const domainName = process.env.NEXT_PUBLIC_NAMEAPP;
   const responseBarang = await GetDataApi(
     `${process.env.NEXT_PUBLIC_HOST}/barang?page=1&limit=10`
   );
@@ -23,6 +24,7 @@ const Home = async () => {
       <SearchBar />
       <SwiperProduct products={products} title="Barang Terbaru" />
       <CatalogProducts products={products} title={"Semua Produk"} />
+      <p>Nama Domain: {domainName}</p>
     </div>
   );
 };
