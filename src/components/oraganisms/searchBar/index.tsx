@@ -4,6 +4,7 @@ import { useState } from "react";
 import { GetDataApi } from "@/src/utils";
 import { Block, Notify } from "notiflix";
 import CatalogProducts from "../catalogProducts";
+import config from "@/config";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,7 +15,7 @@ const SearchBar = () => {
     event.preventDefault();
     try {
       const response = await GetDataApi(
-        `${process.env.NEXT_PUBLIC_HOST}/barang/search?query=${searchTerm}`
+        `${config.NEXT_PUBLIC_API_HOST}/barang/search?query=${searchTerm}`
       );
       if (response.status === 400) {
         Notify.failure(response.message);
@@ -39,6 +40,7 @@ const SearchBar = () => {
   return (
     <div>
       <form
+        id="searchResult"
         className="flex justify-center items-center py-8"
         onSubmit={handleSearch}
       >
@@ -61,7 +63,7 @@ const SearchBar = () => {
       </form>
       {/* product result */}
       {products && products?.length > 0 && (
-        <div id="searchResult">
+        <div>
           <CatalogProducts
             products={products}
             title={`Hasil Pencarian dari ${searchTerm}`}

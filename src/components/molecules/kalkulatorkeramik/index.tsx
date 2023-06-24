@@ -40,7 +40,7 @@ const KalkulatorKeramik = (props: {
             {`Kebutuhan: ${hasil?.kebutuhan} ${props.satuanBarang}`}
           </p>
           <p className="md:text-lg font-medium my-3">
-            {`Estimasi harga: Rp ${(
+            {`Estimasi Biaya: Rp ${(
               hasil?.kebutuhan * props.hargaBarang
             ).toLocaleString()}*`}{" "}
             <span className="text-sm text-gray-500">{`(*berdasarkan hasil kebutuhan dan harga barang)`}</span>
