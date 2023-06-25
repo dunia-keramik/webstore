@@ -24,29 +24,29 @@ async function Product({ params }: { params: { slug: string } }) {
   const Barang = data.data;
   const webstore = responseWebstore?.data;
 
+  const hargaModal =
+    Number(Barang?.harga_beli) +
+    Number((Barang?.harga_beli * webstore?.membership?.kategoriHarga?.persentase) / 100);
+  const hargaJual =
+    hargaModal + Number((hargaModal * webstore?.profit_percentage) / 100);
+
   return (
     <div>
       <AppBar backIcon={true} webstore={webstore} />
       <div className="max-w-3xl mx-auto">
         <DetailProduct
           product={Barang}
-          persentase={webstore?.membership?.kategoriHarga?.persentase}
+          hargaJual={hargaJual}
         />
         <DeskripsiProduct product={Barang} />
         <SimulasiKeramik imageUrl={Barang?.images[0]} />
         <KalkulatorKeramik
           kategoriBarang={Barang?.nama_kategori_barang}
           satuanBarang={Barang?.nama_satuan}
-          hargaBarang={
-            Number(Barang?.harga_beli) +
-            Number(
-              (Barang?.harga_beli *
-                webstore?.membership?.kategoriHarga?.persentase) /
-                100
-            )
-          }
+          hargaBarang={hargaJual}
         />
       </div>
+      {JSON.stringify(webstore)}
     </div>
   );
 }

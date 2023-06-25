@@ -1,10 +1,12 @@
 import { Button } from "../../atoms";
 
 /* eslint-disable @next/next/no-img-element */
-const DetailProduct = (props: { product: any; persentase: any }) => {
+const DetailProduct = (props: {
+  product: any;
+  hargaJual: Number
+}) => {
   const Barang = props.product;
-  const harga =
-    Number(Barang?.harga_beli) + Number(Barang?.harga_beli * props.persentase / 100);
+
   return (
     <div className="py-8 px-4 flex md:border md:flex-row flex-col shadow rounded my-3 p-2">
       <div className="md:w-1/3 flex justify-center w-full">
@@ -30,7 +32,7 @@ const DetailProduct = (props: { product: any; persentase: any }) => {
         <p className="md:text-lg font-medium my-3">
           Harga:{" "}
           {"Rp " +
-            Number(harga).toLocaleString("id-ID") +
+            Number(props.hargaJual).toLocaleString("id-ID") +
             `/${Barang?.nama_satuan}`}
         </p>
         <Button color="green">Whatsapp</Button>
