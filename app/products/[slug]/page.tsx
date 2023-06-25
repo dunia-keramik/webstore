@@ -46,7 +46,6 @@ async function Product({ params }: { params: { slug: string } }) {
           hargaBarang={hargaJual}
         />
       </div>
-      {JSON.stringify(webstore)}
     </div>
   );
 }

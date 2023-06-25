@@ -22,7 +22,6 @@ const Product = async () => {
     <div>
       <AppBar webstore={webstore} />
       <SearchBar />
-      <SwiperProduct products={products} title="Barang Terbaru" />
       <CatalogProducts products={products} title={"Semua Produk"} />
     </div>
   );
