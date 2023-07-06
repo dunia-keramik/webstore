@@ -1,5 +1,4 @@
 import config from "@/config";
-import { SwiperProduct } from "@/src/components/molecules";
 import {
   AppBar,
   CatalogProducts,
@@ -7,24 +6,20 @@ import {
 } from "@/src/components/oraganisms";
 import { GetDataApi } from "@/src/utils";
 
-const Product = async () => {
-  const responseBarang = await GetDataApi(
-    `${config.NEXT_PUBLIC_API_HOST}/barang?page=1&limit=10`
-  );
+const Home = async () => {
   const responseWebstore = await GetDataApi(
     `${config.NEXT_PUBLIC_API_HOST}/webstore/domain/${config.NEXT_PUBLIC_HOST}`
   );
 
   const webstore = responseWebstore?.data;
-  const products = responseBarang?.data;
 
   return (
     <div>
       <AppBar webstore={webstore} />
       <SearchBar />
-      <CatalogProducts products={products} title={"Semua Produk"} />
+      <CatalogProducts />
     </div>
   );
 };
 
-export default Product;
+export default Home;

@@ -5,6 +5,8 @@ import { GetDataApi } from "@/src/utils";
 import { Block, Notify } from "notiflix";
 import CatalogProducts from "../catalogProducts";
 import config from "@/config";
+import { HeaderSection } from "../../atoms";
+import { CardProduct } from "../../molecules";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -63,11 +65,15 @@ const SearchBar = () => {
       </form>
       {/* product result */}
       {products && products?.length > 0 && (
-        <div>
-          <CatalogProducts
-            products={products}
-            title={`Hasil Pencarian dari ${searchTerm}`}
-          />
+        <div className="p-2 m-2 shadow sm:border rounded">
+          <HeaderSection title="Hasil Pencarian" />
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {products?.map((product: any) => (
+              <div key={product.slug}>
+                <CardProduct product={product} />
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
