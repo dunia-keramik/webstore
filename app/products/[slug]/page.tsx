@@ -7,11 +7,6 @@ import {
 } from "@/src/components/molecules";
 import { AppBar, DetailProduct } from "@/src/components/oraganisms";
 import { GetDataApi } from "@/src/utils";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Detail Barang - Dunia Keramik",
-};
 
 async function Product({ params }: { params: { slug: string } }) {
   const data = await GetDataApi(
