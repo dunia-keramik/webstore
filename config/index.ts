@@ -1,6 +1,6 @@
 const config = {
-  NEXT_PUBLIC_API_HOST: process.env.NEXT_PUBLIC_API_HOST || "http://localhost:5000",
-  NEXT_PUBLIC_HOST: process.env.NEXT_PUBLIC_HOST || "supermitra-webstore.netlify.app",
+  NEXT_PUBLIC_HOST: process.env.NEXT_PUBLIC_HOST || "https://api.duniakeramik.com",
+  NEXT_PUBLIC_DOMAIN_NAME: process.env.NEXT_PUBLIC_DOMAIN_NAME || "contoh-webstore.netlify.app",
 };
 
 export default config;

@@ -10,10 +10,10 @@ import { GetDataApi } from "@/src/utils";
 
 async function Product({ params }: { params: { slug: string } }) {
   const data = await GetDataApi(
-    `${config.NEXT_PUBLIC_API_HOST}/barang/${params.slug}`
+    `${config.NEXT_PUBLIC_HOST}/barang/${params.slug}`
   );
   const responseWebstore = await GetDataApi(
-    `${config.NEXT_PUBLIC_API_HOST}/webstore/domain/${config.NEXT_PUBLIC_HOST}`
+    `${config.NEXT_PUBLIC_HOST}/webstore/domain/${config.NEXT_PUBLIC_DOMAIN_NAME}`
   );
 
   const Barang = data.data;

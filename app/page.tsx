@@ -8,7 +8,7 @@ import { GetDataApi } from "@/src/utils";
 
 const Home = async () => {
   const responseWebstore = await GetDataApi(
-    `${config.NEXT_PUBLIC_API_HOST}/webstore/domain/${config.NEXT_PUBLIC_HOST}`
+    `${config.NEXT_PUBLIC_HOST}/webstore/domain/${config.NEXT_PUBLIC_DOMAIN_NAME}`
   );
 
   const webstore = responseWebstore?.data;

@@ -3,7 +3,6 @@ import { RiSearchLine } from "react-icons/ri";
 import { useState } from "react";
 import { GetDataApi } from "@/src/utils";
 import { Block, Notify } from "notiflix";
-import CatalogProducts from "../catalogProducts";
 import config from "@/config";
 import { HeaderSection } from "../../atoms";
 import { CardProduct } from "../../molecules";
@@ -17,7 +16,7 @@ const SearchBar = () => {
     event.preventDefault();
     try {
       const response = await GetDataApi(
-        `${config.NEXT_PUBLIC_API_HOST}/barang/search?query=${searchTerm}`
+        `${config.NEXT_PUBLIC_HOST}/barang/search?query=${searchTerm}`
       );
       if (response.status === 400) {
         Notify.failure(response.message);
