@@ -22,6 +22,9 @@ export default function SimulasiKeramik(props: { imageUrl: string }) {
         <ImagePattern imageUrl={props.imageUrl} />
         <ImagePattern imageUrl={props.imageUrl} />
         <ImagePattern imageUrl={props.imageUrl} />
+        <ImagePattern imageUrl={props.imageUrl} />
+        <ImagePattern imageUrl={props.imageUrl} />
+        <ImagePattern imageUrl={props.imageUrl} />
       </div>
       <Input
         label={"Warna Nat"}
