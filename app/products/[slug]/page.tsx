@@ -21,7 +21,10 @@ async function Product({ params }: { params: { slug: string } }) {
 
   const hargaModal =
     Number(Barang?.harga_beli) +
-    Number((Barang?.harga_beli * webstore?.membership?.kategoriHarga?.persentase) / 100);
+    Number(
+      (Barang?.harga_beli * webstore?.membership?.kategoriHarga?.persentase) /
+        100
+    );
   const hargaJual =
     hargaModal + Number((hargaModal * webstore?.profit_percentage) / 100);
 
@@ -32,6 +35,7 @@ async function Product({ params }: { params: { slug: string } }) {
         <DetailProduct
           product={Barang}
           hargaJual={hargaJual}
+          whatsappMitra={webstore?.dataMitra?.no_whatsapp}
         />
         <DeskripsiProduct product={Barang} />
         <SimulasiKeramik imageUrl={Barang?.images[0]} />
