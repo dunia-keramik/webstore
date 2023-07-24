@@ -64,20 +64,16 @@ const DetailProduct = (props: {
         <p className="md:text-xl text-lg font-bold my-3">
           {Barang?.nama_barang}
         </p>
+        <p className="md:text-lg font-medium my-3">Brand: {Barang?.merk}</p>
         <p className="md:text-lg font-medium my-3">
-          Brand: {Barang?.nama_brand}
+          Kategori Barang: {Barang?.kategori}
         </p>
         <p className="md:text-lg font-medium my-3">
-          Kategori Barang: {Barang?.nama_kategori_barang}
-        </p>
-        <p className="md:text-lg font-medium my-3">
-          Stok: {`${Barang?.stok} ${Barang?.nama_satuan}`}
+          Stok: {`${Barang?.stok} dus`}
         </p>
         <p className="md:text-lg font-medium my-3">
           Harga:{" "}
-          {"Rp " +
-            Number(props.hargaJual).toLocaleString("id-ID") +
-            `/${Barang?.nama_satuan}`}
+          {"Rp " + Number(props.hargaJual).toLocaleString("id-ID") + `/dus`}
         </p>
         <Button onClick={handleWhatsAppClick} color="green">
           Whatsapp

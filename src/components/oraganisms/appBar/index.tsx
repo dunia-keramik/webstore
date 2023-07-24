@@ -1,6 +1,6 @@
 import { BackIcon } from "../../atoms";
 
-async function AppBar(props: { webstore: any; backIcon?: boolean }) {
+async function AppBar(props: { backIcon?: boolean }) {
   return (
     <div
       className={`flex shadow p-3 md:p-5 ${
@@ -11,9 +11,7 @@ async function AppBar(props: { webstore: any; backIcon?: boolean }) {
         <BackIcon />
       </div>
       <div>
-        <p className="font-bold text-lg md:text-xl">
-          {props.webstore && props.webstore?.nama_webstore}
-        </p>
+        <p className="font-bold text-lg md:text-xl">Dunia Keramik</p>
       </div>
       <div></div>
     </div>

@@ -12,7 +12,7 @@ const CatalogProducts = () => {
   useEffect(() => {
     async function fetchData() {
       const responseBarang = await GetDataApi(
-        `${config.NEXT_PUBLIC_HOST}/barang?page=${currentPage}&limit=12`
+        `${config.NEXT_PUBLIC_HOST}/barang?page=${currentPage}&limit=25`
       );
 
       setLoadedProducts((prevProducts: any) => [

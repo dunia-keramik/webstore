@@ -8,7 +8,7 @@ const HitungKeramik = (
   let diameter_perdus = 1;
 
   switch (kategoriBarang) {
-    case "granit":
+    case "Granit":
       diameter_perdus = 1.44;
       kebutuhan = Math.ceil(diameter_ruang / diameter_perdus);
       break;

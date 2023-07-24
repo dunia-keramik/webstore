@@ -5,7 +5,6 @@ import { Button, HeaderSection, Input } from "../../atoms";
 
 const KalkulatorKeramik = (props: {
   kategoriBarang: string;
-  satuanBarang: string;
   hargaBarang: number;
 }) => {
   const [panjang, setPanjang] = useState(0);
@@ -37,7 +36,7 @@ const KalkulatorKeramik = (props: {
       {hasil && hasil?.kebutuhan && (
         <div>
           <p className="md:text-lg font-medium my-3">
-            {`Kebutuhan: ${hasil?.kebutuhan} ${props.satuanBarang}`}
+            {`Kebutuhan: ${hasil?.kebutuhan} dus`}
           </p>
           <p className="md:text-lg font-medium my-3">
             {`Estimasi Biaya: Rp ${(
