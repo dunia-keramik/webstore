@@ -22,7 +22,7 @@ async function Product({ params }: { params: { slug: string } }) {
         <DetailProduct
           product={Barang}
           hargaJual={Number(Barang?.harga)}
-          whatsappMitra="082157758174"
+          whatsappMitra="+6282157758174"
         />
         <DeskripsiProduct product={Barang} />
         <SimulasiKeramik imageUrl={Barang?.images[0]} />
