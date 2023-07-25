@@ -40,7 +40,7 @@ const DetailProduct = (props: {
                   alt={Barang?.nama_barang}
                   width={400}
                   height={400}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain border"
                 />
               </SwiperSlide>
             ))}
@@ -51,7 +51,7 @@ const DetailProduct = (props: {
             alt={Barang?.nama_barang}
             width={400}
             height={400}
-            className="w-full h-60 object-contain"
+            className="w-full h-60 object-contain border"
           />
         )}
         {Barang?.images.length > 1 && (
