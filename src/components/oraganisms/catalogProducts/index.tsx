@@ -8,27 +8,43 @@ import config from "@/config";
 const CatalogProducts = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [loadedProducts, setLoadedProducts] = useState([] as any);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasMoreData, setHasMoreData] = useState(true);
 
-  useEffect(() => {
-    async function fetchData() {
-      const responseBarang = await GetDataApi(
-        `${config.NEXT_PUBLIC_HOST}/barang?page=${currentPage}&limit=25`
-      );
+  // Function untuk fetch data baru
+  const fetchData = async (page: number) => {
+    setIsLoading(true);
+    const responseBarang = await GetDataApi(
+      `${config.NEXT_PUBLIC_HOST}/barang?page=${page}&limit=25`
+    );
 
+    if (responseBarang?.data.length === 0) {
+      setHasMoreData(false);
+    } else {
       setLoadedProducts((prevProducts: any) => [
         ...prevProducts,
         ...responseBarang?.data,
       ]);
     }
 
-    fetchData();
+    setIsLoading(false);
+  };
+
+  // Fetch data pertama kali komponen dimuat
+  useEffect(() => {
+    fetchData(currentPage);
   }, [currentPage]);
 
+  // Handle scroll
   useEffect(() => {
     function handleScroll() {
       const { scrollTop, clientHeight, scrollHeight } =
         document.documentElement;
-      if (scrollTop + clientHeight >= scrollHeight) {
+      if (
+        scrollTop + clientHeight >= scrollHeight &&
+        !isLoading &&
+        hasMoreData
+      ) {
         setCurrentPage((prevPage) => prevPage + 1);
       }
     }
@@ -37,7 +53,7 @@ const CatalogProducts = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isLoading, hasMoreData]);
 
   return (
     <div
@@ -53,6 +69,10 @@ const CatalogProducts = () => {
           </div>
         ))}
       </div>
+      {isLoading && <p className="text-center mt-2">Loading...</p>}
+      {!hasMoreData && loadedProducts.length > 0 && (
+        <p className="text-center mt-2">Semua data sudah dimuat.</p>
+      )}
     </div>
   );
 };
