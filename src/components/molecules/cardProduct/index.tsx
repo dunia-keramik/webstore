@@ -29,7 +29,9 @@ const CardProduct = (props: { product: any }) => {
           alt={props.product?.nama_barang}
         />
       </div>
-      <p className="text-center font-bold">{props.product?.nama_barang}</p>
+      <p className="text-center font-bold">
+        {(props.product?.nama_barang as string).toUpperCase()}
+      </p>
       <div
         className={`text-xs rounded-full py-1 px-2 mt-2 ${
           isOutOfStock ? "bg-red-500 text-white" : ""
