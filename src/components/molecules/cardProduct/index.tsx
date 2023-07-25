@@ -8,6 +8,11 @@ const CardProduct = (props: { product: any }) => {
   // Cek apakah stok berada di bawah atau sama dengan 50
   const isOutOfStock = props.product?.stok <= 0;
 
+  // Format teks untuk kualitas (huruf pertama besar, sisanya kecil)
+  const formattedKualitas =
+    props.product?.kualitas.charAt(0).toUpperCase() +
+    props.product?.kualitas.slice(1).toLowerCase();
+
   return (
     <div
       onClick={() => {
@@ -30,7 +35,7 @@ const CardProduct = (props: { product: any }) => {
           isOutOfStock ? "bg-red-500 text-white" : ""
         }`}
       >
-        {props.product?.kualitas}{" "}
+        {formattedKualitas}{" "}
         {isOutOfStock ? (
           <span className="text-sm font-semibold">(Stok Habis)</span>
         ) : (
