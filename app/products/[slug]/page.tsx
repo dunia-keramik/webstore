@@ -4,6 +4,7 @@ import {
   DeskripsiProduct,
   KalkulatorKeramik,
   SimulasiKeramik,
+  SwiperProduct,
 } from "@/src/components/molecules";
 import { AppBar, DetailProduct } from "@/src/components/oraganisms";
 import { GetDataApi } from "@/src/utils";
@@ -14,6 +15,12 @@ async function Product({ params }: { params: { slug: string } }) {
   );
 
   const Barang = data.data;
+
+  const dataMotif = await GetDataApi(
+    `${config.NEXT_PUBLIC_HOST}/barang?page=1&limit=10&motif=${Barang.motif}`
+  );
+
+  const MotifSerupa = dataMotif.data;
 
   return (
     <div>
@@ -30,6 +37,7 @@ async function Product({ params }: { params: { slug: string } }) {
           kategoriBarang={Barang?.kategori}
           hargaBarang={Number(Barang?.harga)}
         />
+        <SwiperProduct products={MotifSerupa} title={"Motif Serupa"} />
       </div>
     </div>
   );
