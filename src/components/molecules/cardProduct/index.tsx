@@ -37,12 +37,21 @@ const CardProduct = (props: { product: any }) => {
           isOutOfStock ? "bg-red-500 text-white" : ""
         }`}
       >
-        {formattedKualitas}{" "}
-        {isOutOfStock ? (
-          <span className="text-sm font-semibold">(Stok Habis)</span>
-        ) : (
-          <span className="text-sm font-semibold">({props.product?.stok})</span>
-        )}
+        <div className="flex justify-between">
+          <div>
+            {formattedKualitas}{" "}
+            {isOutOfStock ? (
+              <span className="text-sm font-semibold">(Stok Habis)</span>
+            ) : (
+              <span className="text-sm font-semibold">
+                ({props.product?.stok})
+              </span>
+            )}
+          </div>
+          <div>
+            <p>{props.product?.ukuran}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
