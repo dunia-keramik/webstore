@@ -27,7 +27,7 @@ const CardProduct = (props: { product: any }) => {
           alt={props.product?.nama_barang}
         />
       </div>
-      <p className="text-center font-bold">
+      <p className="md:text-base text-xs text-center font-bold">
         {(props.product?.nama_barang as string).toUpperCase()}
       </p>
       <div
@@ -39,11 +39,11 @@ const CardProduct = (props: { product: any }) => {
           <div>
             {formattedKualitas}{" "}
             {isOutOfStock ? (
-              <span className="text-sm font-semibold text-red-600">
+              <span className="font-semibold text-red-600">
                 ({props.product?.stok})
               </span>
             ) : (
-              <span className="text-sm font-semibold">
+              <span className="font-semibold">
                 ({props.product?.stok})
               </span>
             )}

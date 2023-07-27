@@ -15,7 +15,7 @@ const CatalogProducts = () => {
   const fetchData = async (page: number) => {
     setIsLoading(true);
     const responseBarang = await GetDataApi(
-      `${config.NEXT_PUBLIC_HOST}/barang?page=${page}&limit=25`
+      `${config.NEXT_PUBLIC_HOST}/barang?page=${page}&limit=30`
     );
 
     if (responseBarang?.data.length === 0) {
@@ -30,20 +30,20 @@ const CatalogProducts = () => {
     setIsLoading(false);
   };
 
-  // Fetch data pertama kali komponen dimuat
-  useEffect(() => {
-    fetchData(currentPage);
-  }, [currentPage]);
-
   // Handle scroll
   useEffect(() => {
     function handleScroll() {
       const { scrollTop, clientHeight, scrollHeight } =
         document.documentElement;
+      const scrollPosition = scrollTop + clientHeight;
+      const totalDataHeight = scrollHeight - clientHeight;
+
+      // Jika user telah melakukan scroll hingga sebagian dari data terakhir yang telah dimuat
       if (
-        scrollTop + clientHeight >= scrollHeight &&
+        scrollPosition >= totalDataHeight &&
         !isLoading &&
-        hasMoreData
+        hasMoreData &&
+        currentPage <= 4 // Ubah angka 4 sesuai dengan halaman terakhir yang ingin dimuat
       ) {
         setCurrentPage((prevPage) => prevPage + 1);
       }
@@ -53,7 +53,12 @@ const CatalogProducts = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isLoading, hasMoreData]);
+  }, [isLoading, hasMoreData, currentPage]);
+
+  // Fetch data pertama kali komponen dimuat
+  useEffect(() => {
+    fetchData(currentPage);
+  }, [currentPage]);
 
   return (
     <div
