@@ -15,7 +15,7 @@ const CatalogProducts = () => {
   const fetchData = async (page: number) => {
     setIsLoading(true);
     const responseBarang = await GetDataApi(
-      `${config.NEXT_PUBLIC_HOST}/barang?page=${page}&limit=30`
+      `${config.NEXT_PUBLIC_HOST}/barang?page=${page}&limit=50`
     );
 
     if (responseBarang?.data.length === 0) {
@@ -26,7 +26,6 @@ const CatalogProducts = () => {
         ...responseBarang?.data,
       ]);
     }
-
     setIsLoading(false);
   };
 
