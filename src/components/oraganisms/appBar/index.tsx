@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { BackIcon } from "../../atoms";
+import logo from "@/public/logo.png";
 
 async function AppBar(props: { backIcon?: boolean }) {
   return (
@@ -10,7 +12,12 @@ async function AppBar(props: { backIcon?: boolean }) {
       <div className={`${!props.backIcon ? "hidden" : ""}`}>
         <BackIcon />
       </div>
-      <div>
+      <div className="flex items-center">
+        <Image
+          src={logo}
+          alt="Dunia Keramik Logo"
+          className="w-8 h-8 md:w-12 md:h-12 mr-2"
+        />
         <p className="font-bold text-lg md:text-xl">Dunia Keramik</p>
       </div>
       <div></div>
