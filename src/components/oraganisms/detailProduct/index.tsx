@@ -16,7 +16,7 @@ const DetailProduct = (props: {
   const Barang = props.product;
 
   const handleWhatsAppClick = () => {
-    const message = `Aku ingin bertanya tentang ${Barang?.nama_barang}`;
+    const message = `Aku ingin bertanya tentang *${Barang?.nama_barang}* merk *${Barang?.merk}* dan ukuran *${Barang?.ukuran}*`;
     const whatsappLink = `https://api.whatsapp.com/send?phone=${
       props.whatsappMitra
     }&text=${encodeURIComponent(message)}`;

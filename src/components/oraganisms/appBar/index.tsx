@@ -12,13 +12,16 @@ async function AppBar(props: { backIcon?: boolean }) {
       <div className={`${!props.backIcon ? "hidden" : ""}`}>
         <BackIcon />
       </div>
-      <div className="flex items-center">
-        <Image
-          src={logo}
-          alt="Dunia Keramik Logo"
-          className="w-8 h-8 md:w-12 md:h-12 mr-2"
-        />
-        <p className="font-bold text-lg md:text-xl">Dunia Keramik</p>
+      <div className="flex flex-col">
+        <div className="flex items-center justify-center">
+          <Image
+            src={logo}
+            alt="Dunia Keramik Logo"
+            className="w-8 h-8 md:w-12 md:h-12 mr-2"
+          />
+          <p className="font-bold text-lg md:text-xl">Dunia Keramik</p>
+        </div>
+        <p className="md:text-sm text-xs">Jl Sultan Sulaiman, Sambutan</p>
       </div>
       <div></div>
     </div>
