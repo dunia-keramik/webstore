@@ -19,7 +19,7 @@ async function AppBar(props: { backIcon?: boolean }) {
             alt="Dunia Keramik Logo"
             className="w-8 h-8 md:w-12 md:h-12 mr-2"
           />
-          <p className="font-bold text-lg md:text-xl">Dunia Keramik</p>
+          <p className="font-bold text-lg md:text-xl">Dunia Keramik Samarinda</p>
         </div>
         <p className="md:text-sm text-xs text-center">
           Jl Sultan Sulaiman, Sambutan Samarinda Kalimantan Timur
