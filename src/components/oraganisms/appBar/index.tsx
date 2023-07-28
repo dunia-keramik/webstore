@@ -21,7 +21,9 @@ async function AppBar(props: { backIcon?: boolean }) {
           />
           <p className="font-bold text-lg md:text-xl">Dunia Keramik</p>
         </div>
-        <p className="md:text-sm text-xs">Jl Sultan Sulaiman, Sambutan</p>
+        <p className="md:text-sm text-xs text-center">
+          Jl Sultan Sulaiman, Sambutan Samarinda Kalimantan Timur
+        </p>
       </div>
       <div></div>
     </div>
