@@ -59,6 +59,10 @@ const CatalogProducts = () => {
     fetchData(currentPage);
   }, [currentPage]);
 
+  const filterProducts = (products: any) => {
+    return products.filter((product: any) => product.stok >= 25);
+  };
+
   return (
     <div
       className={`p-2 m-2 shadow sm:border rounded ${
@@ -67,7 +71,7 @@ const CatalogProducts = () => {
     >
       <HeaderSection title="Semua Barang" />
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        {loadedProducts?.map((product: any) => (
+        {filterProducts(loadedProducts)?.map((product: any) => (
           <div key={product.slug}>
             <CardProduct product={product} />
           </div>
