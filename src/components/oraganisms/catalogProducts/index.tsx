@@ -42,7 +42,7 @@ const CatalogProducts = () => {
         scrollPosition >= totalDataHeight &&
         !isLoading &&
         hasMoreData &&
-        currentPage <= 4 // Ubah angka 4 sesuai dengan halaman terakhir yang ingin dimuat
+        currentPage <= 6 // Ubah angka 4 sesuai dengan halaman terakhir yang ingin dimuat
       ) {
         setCurrentPage((prevPage) => prevPage + 1);
       }
