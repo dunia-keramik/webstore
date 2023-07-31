@@ -9,9 +9,9 @@ const CardProduct = (props: { product: any }) => {
   const isOutOfStock = props.product?.stok <= 100;
 
   // Format teks untuk kualitas (huruf pertama besar, sisanya kecil)
-  const formattedKualitas =
-    props.product?.kualitas.charAt(0).toUpperCase() +
-    props.product?.kualitas.slice(1).toLowerCase();
+ // const formattedKualitas =
+   // props.product?.kualitas.charAt(0).toUpperCase() +
+   // props.product?.kualitas.slice(1).toLowerCase();
 
   return (
     <div
@@ -37,7 +37,7 @@ const CardProduct = (props: { product: any }) => {
       >
         <div className="flex justify-between">
           <div>
-            {formattedKualitas}{" "}
+            {props.product?.kualitas}{" "}
             {isOutOfStock ? (
               <span className="font-semibold text-red-600">
                 ({props.product?.stok})
