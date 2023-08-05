@@ -41,8 +41,7 @@ const CatalogProducts = () => {
       if (
         scrollPosition >= totalDataHeight &&
         !isLoading &&
-        hasMoreData &&
-        currentPage <= 15 // Ubah angka 15 sesuai dengan halaman terakhir yang ingin dimuat
+        hasMoreData
       ) {
         setCurrentPage((prevPage) => prevPage + 1);
       }

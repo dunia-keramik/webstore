@@ -41,7 +41,7 @@ async function Product({ params }: { params: { slug: string } }) {
         />
         <WhatsappButton barang={Barang} phone="+6282157758174" />
         {/* <AlamatToko /> */}
-        <SwiperProduct products={productSerupa} title={"Barang Serupa"} />
+        <SwiperProduct products={productSerupa} title={"Rekomendasi"} />
       </div>
     </div>
   );
