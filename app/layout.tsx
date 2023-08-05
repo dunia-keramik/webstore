@@ -20,8 +20,10 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={inter.className}>
-        {children}
-        <TextFooter />
+        <div className="text-gray-950">
+          {children}
+          <TextFooter />
+        </div>
       </body>
     </html>
   );
