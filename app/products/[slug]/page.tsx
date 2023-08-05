@@ -19,7 +19,7 @@ async function Product({ params }: { params: { slug: string } }) {
   const Barang = data.data;
 
   const response = await GetDataApi(
-    `${config.NEXT_PUBLIC_HOST}/barang?page=1&limit=15&motif=${Barang.motif}&ukuran=${Barang.ukuran}`
+    `${config.NEXT_PUBLIC_HOST}/barang?page=1&limit=15&motif=${Barang.motif}&ukuran=${Barang.ukuran}&tekstur=${Barang.tekstur}`
   );
 
   const productSerupa = response.data;
