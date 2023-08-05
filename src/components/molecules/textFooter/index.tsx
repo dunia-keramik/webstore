@@ -1,6 +1,6 @@
 export default function TextFooter() {
   return (
-    <p className="text-sm font-light text-center text-gray-500 dark:text-gray-400 mt-10">
+    <p className="bg-gray-100 text-sm font-light text-center text-gray-800 py-10">
       Created By{" "}
       <a
         href="https://github.com/sarrahman-me"
@@ -8,7 +8,7 @@ export default function TextFooter() {
         rel="noopener noreferrer"
         className="font-medium text-sky-600 hover:underline dark:text-sky-500"
       >
-        Sarrahman
+        sarrahman.me
       </a>
     </p>
   );
