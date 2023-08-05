@@ -64,7 +64,7 @@ const SearchBar = () => {
       {
         products && products?.length > 0 ? (
           // Tampilkan bagian ini hanya jika ada hasil dari pencarian
-          <div className="bg-white p-2 m-2 shadow sm:border rounded">
+          <div className="bg-white p-2 mb-3 md:mx-2 shadow sm:border rounded">
             <HeaderSection title="Hasil Pencarian" />
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
               {products?.map((product: any) => (

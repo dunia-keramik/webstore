@@ -64,7 +64,7 @@ const CatalogProducts = () => {
   };
 
   return (
-    <div className={`bg-white p-2 m-2 shadow sm:border rounded`}>
+    <div className={`bg-white p-2 my-3 md:mx-2 shadow sm:border rounded`}>
       <HeaderSection title="Semua Barang" />
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {filterProducts(loadedProducts)?.map((product: any) => (

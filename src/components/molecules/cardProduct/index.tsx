@@ -23,7 +23,7 @@ const CardProduct = (props: { product: any }) => {
       onClick={() => {
         router.push(`/products/${props.product.slug}`);
       }}
-      className={`shadow m-2 cursor-pointer relative`} // Tambahkan class relative
+      className={`bg-gray-50 rounded shadow m-2 cursor-pointer relative hover:shadow-md`} // Tambahkan class relative
     >
       {/* Tambahkan label "Baru" menggunakan class absolute */}
       {isNewProduct() && (
