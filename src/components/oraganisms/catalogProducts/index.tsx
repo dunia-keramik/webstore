@@ -64,11 +64,7 @@ const CatalogProducts = () => {
   };
 
   return (
-    <div
-      className={`bg-white p-2 m-2 shadow sm:border rounded ${
-        loadedProducts && loadedProducts?.length > 0 ? "" : "hidden"
-      }`}
-    >
+    <div className={`bg-white p-2 m-2 shadow sm:border rounded`}>
       <HeaderSection title="Semua Barang" />
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {filterProducts(loadedProducts)?.map((product: any) => (
@@ -77,9 +73,9 @@ const CatalogProducts = () => {
           </div>
         ))}
       </div>
-      {isLoading && <p className="text-center mt-2">Loading...</p>}
+      {isLoading && <p className="text-center mt-2 text-xs md:text-base">Loading...</p>}
       {!hasMoreData && loadedProducts.length > 0 && (
-        <p className="text-center mt-2">Semua data sudah dimuat.</p>
+        <p className="text-center mt-2 text-xs md:text-base">Semua data sudah dimuat.</p>
       )}
     </div>
   );
