@@ -2,7 +2,7 @@
 import { RiSearchLine } from "react-icons/ri";
 import { useState } from "react";
 import { GetDataApi } from "@/src/utils";
-import { Block, Notify } from "notiflix";
+import { Notify } from "notiflix";
 import config from "@/config";
 import { HeaderSection } from "../../atoms";
 import { CardProduct } from "../../molecules";
@@ -10,9 +10,9 @@ import { CardProduct } from "../../molecules";
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [products, setProducts] = useState([]);
+  const [searched, setSearched] = useState(false);
 
   const handleSearch = async (event: any) => {
-    Block.hourglass("#searchResult");
     event.preventDefault();
     try {
       const response = await GetDataApi(
@@ -25,10 +25,9 @@ const SearchBar = () => {
         Notify.failure(response.message + ", Coba Lagi!");
       }
       setProducts(response.data);
-      Block.remove("#searchResult");
+      setSearched(true);
     } catch (error) {
       console.error(error);
-      Block.remove("#searchResult");
     }
   };
 
@@ -41,7 +40,6 @@ const SearchBar = () => {
   return (
     <div>
       <form
-        id="searchResult"
         className="flex justify-center items-center py-8"
         onSubmit={handleSearch}
       >
@@ -63,16 +61,29 @@ const SearchBar = () => {
         </div>
       </form>
       {/* product result */}
-      {products && products?.length > 0 && (
-        <div className="p-2 m-2 shadow sm:border rounded">
-          <HeaderSection title="Hasil Pencarian" />
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {products?.map((product: any) => (
-              <div key={product.slug}>
-                <CardProduct product={product} />
-              </div>
-            ))}
+      {
+        products && products?.length > 0 ? (
+          // Tampilkan bagian ini hanya jika ada hasil dari pencarian
+          <div className="bg-white p-2 m-2 shadow sm:border rounded">
+            <HeaderSection title="Hasil Pencarian" />
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {products?.map((product: any) => (
+                <div key={product.slug}>
+                  <CardProduct product={product} />
+                </div>
+              ))}
+            </div>
           </div>
+        ) : null /* Gunakan null untuk tidak menampilkan apa pun jika tidak ada hasil pencarian */
+      }
+
+      {searched && products?.length === 0 && (
+        // Tampilkan bagian ini hanya jika ada pencarian dan tidak ada hasil
+        <div className="bg-white p-2 m-2 shadow sm:border rounded">
+          <HeaderSection title="Hasil Pencarian" />
+          <p className="text-center text-sm md:text-base text-orange-600">
+            Tidak ada hasil yang sesuai, cari dengan kata lain
+          </p>
         </div>
       )}
     </div>

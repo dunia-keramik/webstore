@@ -5,7 +5,7 @@ import logo from "@/public/logo.png";
 async function AppBar(props: { backIcon?: boolean }) {
   return (
     <div
-      className={`flex shadow p-3 md:p-5 ${
+      className={`bg-white flex shadow p-3 md:p-5 ${
         props.backIcon ? "justify-between px-2 md:px-10" : "justify-center"
       }`}
     >
@@ -22,7 +22,7 @@ async function AppBar(props: { backIcon?: boolean }) {
           <p className="font-bold text-lg md:text-xl">Dunia Keramik Samarinda</p>
         </div>
         <p className="md:text-sm text-xs text-center">
-          Jl Sultan Sulaiman, Sambutan Samarinda Kalimantan Timur
+          Jl Sultan Sulaiman, Sambutan Samarinda kaltim
         </p>
       </div>
       <div></div>

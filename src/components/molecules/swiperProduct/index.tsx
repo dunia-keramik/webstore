@@ -11,7 +11,7 @@ export default function SwiperProduct(props: {
   title: string;
 }) {
   return (
-    <div className="p-2 shadow sm:border rounded">
+    <div className="bg-white p-2 shadow sm:border rounded">
       <HeaderSection title={props.title} />
       <div className="cursor-grab select-none">
         <Swiper

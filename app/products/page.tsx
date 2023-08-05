@@ -6,7 +6,7 @@ import {
 
 const Products = async () => {
   return (
-    <div>
+    <div className="bg-gray-100">
       <AppBar />
       <SearchBar />
       <CatalogProducts />

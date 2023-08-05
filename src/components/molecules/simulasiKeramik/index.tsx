@@ -13,7 +13,7 @@ export default function SimulasiKeramik(props: { imageUrl: string }) {
   };
 
   return (
-    <div className="py-4 px-4 flex md:border flex-col shadow rounded my-3 p-2">
+    <div className="bg-white py-4 px-4 flex md:border flex-col shadow rounded my-3 p-2">
       <HeaderSection title="Simulasi Pattern" />
       <div className="grid" style={gridStyles}>
         <ImagePattern imageUrl={props.imageUrl} />

@@ -25,7 +25,7 @@ async function Product({ params }: { params: { slug: string } }) {
   const productSerupa = response.data;
 
   return (
-    <div>
+    <div className="bg-gray-100">
       <AppBar backIcon={true} />
       <div className="max-w-3xl mx-auto">
         <DetailProduct

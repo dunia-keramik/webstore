@@ -18,7 +18,7 @@ const KalkulatorKeramik = (props: {
   };
 
   return (
-    <div className="py-4 px-4 flex md:border flex-col shadow rounded my-3 p-2">
+    <div className="bg-white py-4 px-4 flex md:border flex-col shadow rounded my-3 p-2">
       <HeaderSection title="Kalkulator Keramik" />
       <form onSubmit={handleHitung} className="divide-transparent divide-y-8">
         <Input

@@ -42,7 +42,7 @@ const CatalogProducts = () => {
         scrollPosition >= totalDataHeight &&
         !isLoading &&
         hasMoreData &&
-        currentPage <= 15 // Ubah angka 4 sesuai dengan halaman terakhir yang ingin dimuat
+        currentPage <= 15 // Ubah angka 15 sesuai dengan halaman terakhir yang ingin dimuat
       ) {
         setCurrentPage((prevPage) => prevPage + 1);
       }
@@ -65,7 +65,7 @@ const CatalogProducts = () => {
 
   return (
     <div
-      className={`p-2 m-2 shadow sm:border rounded ${
+      className={`bg-white p-2 m-2 shadow sm:border rounded ${
         loadedProducts && loadedProducts?.length > 0 ? "" : "hidden"
       }`}
     >

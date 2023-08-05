@@ -5,13 +5,8 @@ import { useRouter } from "next/navigation";
 const CardProduct = (props: { product: any }) => {
   const router = useRouter();
 
-  // Cek apakah stok berada di bawah atau sama dengan 50
+  // Cek apakah stok berada di bawah atau sama dengan 100
   const isOutOfStock = props.product?.stok <= 100;
-
-  // Format teks untuk kualitas (huruf pertama besar, sisanya kecil)
- // const formattedKualitas =
-   // props.product?.kualitas.charAt(0).toUpperCase() +
-   // props.product?.kualitas.slice(1).toLowerCase();
 
   return (
     <div

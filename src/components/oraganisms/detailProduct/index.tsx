@@ -25,7 +25,7 @@ const DetailProduct = (props: {
   };
 
   return (
-    <div className="py-8 px-4 flex md:border md:flex-row flex-col shadow rounded my-3 p-2">
+    <div className="bg-white py-8 px-4 flex md:border md:flex-row flex-col shadow rounded my-3 p-2">
       <div className="md:w-1/3 w-full">
         {Barang?.images.length > 1 ? (
           <Swiper

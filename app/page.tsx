@@ -6,7 +6,7 @@ import {
 
 const Home = async () => {
   return (
-    <div>
+    <div className="bg-gray-100 min-h-screen">
       <AppBar />
       <SearchBar />
       <CatalogProducts />
