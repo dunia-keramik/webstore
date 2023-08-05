@@ -8,13 +8,30 @@ const CardProduct = (props: { product: any }) => {
   // Cek apakah stok berada di bawah atau sama dengan 100
   const isOutOfStock = props.product?.stok <= 100;
 
+  // Fungsi untuk memeriksa apakah barang baru
+  const isNewProduct = () => {
+    const createdAt = new Date(props.product?.createdAt);
+    const now = new Date();
+    const threeDaysAgo = new Date();
+    threeDaysAgo.setDate(now.getDate() - 3); // Kurangi 3 hari dari tanggal saat ini
+
+    return createdAt >= threeDaysAgo;
+  };
+
   return (
     <div
       onClick={() => {
         router.push(`/products/${props.product.slug}`);
       }}
-      className={`shadow m-2 cursor-pointer`}
+      className={`shadow m-2 cursor-pointer relative`} // Tambahkan class relative
     >
+      {/* Tambahkan label "Baru" menggunakan class absolute */}
+      {isNewProduct() && (
+        <div className="bg-green-500 text-white text-xs md:text-base px-2 py-1 rounded-tl-md rounded-br-md absolute top-0 left-0">
+          Baru
+        </div>
+      )}
+
       <div className="flex justify-center">
         <img
           className="md:w-44 md:h-44 w-32 h-32 object-cover"
@@ -38,9 +55,7 @@ const CardProduct = (props: { product: any }) => {
                 ({props.product?.stok})
               </span>
             ) : (
-              <span className="font-semibold">
-                ({props.product?.stok})
-              </span>
+              <span className="font-semibold">({props.product?.stok})</span>
             )}
           </div>
           <div>
