@@ -16,7 +16,13 @@ const DetailProduct = (props: {
   const Barang = props.product;
 
   const handleWhatsAppClick = () => {
-    const message = `Saya ingin bertanya tentang produk ini %0a Nama : *${Barang?.nama_barang}*, %0a Merk : *${Barang?.merk}*, %0a Ukuran : *${Barang?.ukuran}*, %0a Kualitas : *${Barang?.kualitas}*, %0a Harga : *${Barang?.harga}* , %0a Stok : *${Barang?.stok}*`;
+    const message = `Saya ingin bertanya tentang produk ini
+    Nama : *${Barang?.nama_barang}*,
+    Merk : *${Barang?.merk}*, 
+    Ukuran : *${Barang?.ukuran}*, 
+    Kualitas : *${Barang?.kualitas}*,
+    Harga : *${Barang?.harga}* ,
+    Stok : *${Barang?.stok}*`;
     const whatsappLink = `https://api.whatsapp.com/send?phone=${
       props.whatsappMitra
     }&text=${encodeURIComponent(message)}`;
