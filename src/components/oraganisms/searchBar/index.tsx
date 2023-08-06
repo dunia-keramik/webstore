@@ -40,13 +40,13 @@ const SearchBar = () => {
   return (
     <div>
       <form
-        className="flex justify-center items-center py-8"
+        className="flex justify-center items-center py-3"
         onSubmit={handleSearch}
       >
-        <div className="relative flex items-center w-3/4">
+        <div className="relative flex items-center w-full md:w-2/3 mx-2">
           <input
             type="text"
-            placeholder="Cari sesuatu..."
+            placeholder="Cari apapun..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={handleKeyPress}

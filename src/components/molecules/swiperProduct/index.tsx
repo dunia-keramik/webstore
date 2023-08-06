@@ -11,7 +11,7 @@ export default function SwiperProduct(props: {
   title: string;
 }) {
   return (
-    <div className="bg-white p-2 my-2 shadow sm:border rounded">
+    <div className="bg-white p-2 my-3 md:mx-2 shadow sm:border rounded">
       <HeaderSection title={props.title} />
       <div className="cursor-grab select-none">
         <Swiper
@@ -25,14 +25,14 @@ export default function SwiperProduct(props: {
               slidesPerView: 3,
               spaceBetween: 30,
             },
-            // 768: {
-            //   slidesPerView: 4,
-            //   spaceBetween: 40,
-            // },
-            // 1024: {
-            //   slidesPerView: 4,
-            //   spaceBetween: 50,
-            // },
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 40,
+            },
+            1024: {
+              slidesPerView: 6,
+              spaceBetween: 50,
+            },
           }}
         >
           {props.products?.map((product) => (

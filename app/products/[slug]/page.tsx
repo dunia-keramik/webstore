@@ -19,7 +19,7 @@ async function Product({ params }: { params: { slug: string } }) {
   const Barang = data.data;
 
   const response = await GetDataApi(
-    `${config.NEXT_PUBLIC_HOST}/barang?page=1&limit=15&motif=${Barang.motif}&ukuran=${Barang.ukuran}&tekstur=${Barang.tekstur}`
+    `${config.NEXT_PUBLIC_HOST}/barang/new?page=1&limit=15&motif=${Barang.motif}&ukuran=${Barang.ukuran}&tekstur=${Barang.tekstur}`
   );
 
   const productSerupa = response.data;
@@ -41,8 +41,8 @@ async function Product({ params }: { params: { slug: string } }) {
         />
         <WhatsappButton barang={Barang} phone="+6282157758174" />
         {/* <AlamatToko /> */}
-        <SwiperProduct products={productSerupa} title={"Rekomendasi"} />
       </div>
+      <SwiperProduct products={productSerupa} title={"Rekomendasi"} />
     </div>
   );
 }
