@@ -21,9 +21,9 @@ async function AppBar(props: { backIcon?: boolean }) {
           />
           <p className="font-bold text-lg md:text-xl">Dunia Keramik Samarinda</p>
         </div>
-        <p className="md:text-sm text-xs text-center">
+        {/* <p className="md:text-sm text-xs text-center">
           Jl Sultan Sulaiman Sambutan, Samarinda kaltim
-        </p>
+        </p> */}
       </div>
       <div></div>
     </div>

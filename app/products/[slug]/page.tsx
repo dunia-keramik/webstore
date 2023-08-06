@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import config from "@/config";
 import {
-  // AlamatToko,
+  AlamatToko,
   DeskripsiProduct,
   KalkulatorKeramik,
   SimulasiKeramik,
@@ -40,7 +40,7 @@ async function Product({ params }: { params: { slug: string } }) {
           hargaBarang={Number(Barang?.harga)}
         />
         <WhatsappButton barang={Barang} phone="+6282157758174" />
-        {/* <AlamatToko /> */}
+        <AlamatToko />
       </div>
       <SwiperProduct products={productSerupa} title={"Rekomendasi"} />
     </div>
