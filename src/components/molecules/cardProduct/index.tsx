@@ -12,10 +12,10 @@ const CardProduct = (props: { product: any }) => {
   const isNewProduct = () => {
     const createdAt = new Date(props.product?.createdAt);
     const now = new Date();
-    const threeDaysAgo = new Date();
-    threeDaysAgo.setDate(now.getDate() - 3); // Kurangi 3 hari dari tanggal saat ini
+    const oneWeekAgo = new Date();
+    oneWeekAgo.setDate(now.getDate() - 7); // Kurangi 7 hari dari tanggal saat ini
 
-    return createdAt >= threeDaysAgo;
+    return createdAt >= oneWeekAgo;
   };
 
   return (
