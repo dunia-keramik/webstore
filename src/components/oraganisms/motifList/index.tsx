@@ -34,7 +34,7 @@ export default function MotifList() {
           <div
             key={i}
             onClick={() => router.push(`products/motif/${motif.nama}`)}
-            className="cursor-pointer border rounded bg-gradient-to-b from-gray-600 to-gray-500 p-2 shadow text-center"
+            className="cursor-pointer border rounded bg-gradient-to-b from-gray-800 to-gray-700 p-2 shadow text-center"
           >
             <p className="text-white font-semibold">
               {(motif.nama as string).toUpperCase()}

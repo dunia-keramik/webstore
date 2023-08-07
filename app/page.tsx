@@ -19,8 +19,8 @@ const Home = async () => {
     <div className="bg-gray-100 min-h-screen">
       <AppBar />
       <SearchBar />
-      <MotifList />
       <SwiperProduct products={productSerupa} title={"Barang Terbaru"} />
+      <MotifList />
       <CatalogProducts />
     </div>
   );
