@@ -2,6 +2,7 @@ import AppBar from "./appBar";
 import CatalogProducts from "./catalogProducts";
 import CatalogProductsFilter from "./catalogProductsFilter";
 import DetailProduct from "./detailProduct";
+import MotifList from "./motifList";
 import SearchBar from "./searchBar";
 
 export {
@@ -10,4 +11,5 @@ export {
   DetailProduct,
   SearchBar,
   CatalogProductsFilter,
+  MotifList,
 };

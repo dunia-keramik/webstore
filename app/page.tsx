@@ -3,6 +3,7 @@ import { SwiperProduct } from "@/src/components/molecules";
 import {
   AppBar,
   CatalogProducts,
+  MotifList,
   SearchBar,
 } from "@/src/components/oraganisms";
 import { GetDataApi } from "@/src/utils";
@@ -18,6 +19,7 @@ const Home = async () => {
     <div className="bg-gray-100 min-h-screen">
       <AppBar />
       <SearchBar />
+      <MotifList />
       <SwiperProduct products={productSerupa} title={"Barang Terbaru"} />
       <CatalogProducts />
     </div>
