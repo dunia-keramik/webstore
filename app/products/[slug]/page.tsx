@@ -5,10 +5,13 @@ import {
   DeskripsiProduct,
   KalkulatorKeramik,
   SimulasiKeramik,
-  SwiperProduct,
   WhatsappButton,
 } from "@/src/components/molecules";
-import { AppBar, DetailProduct } from "@/src/components/oraganisms";
+import {
+  AppBar,
+  CatalogProductsFilter,
+  DetailProduct,
+} from "@/src/components/oraganisms";
 import { GetDataApi } from "@/src/utils";
 
 async function Product({ params }: { params: { slug: string } }) {
@@ -17,12 +20,6 @@ async function Product({ params }: { params: { slug: string } }) {
   );
 
   const Barang = data.data;
-
-  const response = await GetDataApi(
-    `${config.NEXT_PUBLIC_HOST}/barang/new?page=1&limit=15&motif=${Barang.motif}&ukuran=${Barang.ukuran}&tekstur=${Barang.tekstur}`
-  );
-
-  const productSerupa = response.data;
 
   return (
     <div className="bg-gray-100">
@@ -42,7 +39,12 @@ async function Product({ params }: { params: { slug: string } }) {
         <WhatsappButton barang={Barang} phone="+6282157758174" />
         <AlamatToko />
       </div>
-      <SwiperProduct products={productSerupa} title={"Rekomendasi"} />
+      <CatalogProductsFilter
+        title="Rekomendasi"
+        ukuran={Barang.ukuran}
+        motif={Barang.motif}
+        tekstur={Barang.tekstur}
+      />
     </div>
   );
 }
