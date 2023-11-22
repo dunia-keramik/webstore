@@ -42,6 +42,15 @@ const CardProduct = (props: { product: any }) => {
       <p className="md:text-base text-xs text-center font-bold">
         {(props.product?.nama_barang as string).toUpperCase()}
       </p>
+      <p className="md:text-sm text-xs">
+        Motif: {props.product?.motif}
+      </p>
+      <p className="md:text-sm text-xs">
+        Tekstur: {props.product?.tekstur}
+      </p>
+      <p className="md:text-sm text-xs">
+        Harga: {props.product?.harga}
+      </p>
       <div
         className={`text-xs rounded-full py-1 px-2 mt-2 ${
           isOutOfStock ? "" : ""
